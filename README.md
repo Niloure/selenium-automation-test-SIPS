@@ -15,29 +15,35 @@
    cd selenium-automation-test-SIPS
 
 2. Buat & Aktifkan Virtual Environment:
+    ```bash
     python -m venv venv
-    venv\Scripts\activate  # Untuk Windows
+    source venv/bin/activate  # Linux/Mac
+    venv\Scripts\activate     # Windows
 
 3. Install Library:
-    Install Library:
+    ```bash
+    pip install -r requirements.txt
 
 4. Konfigurasi Environment (.env):
-    PENTING: File .env asli tidak di-upload demi keamanan.
+    - PENTING: File .env asli tidak di-upload demi keamanan.
 
     - Copy file .env.example dan ubah namanya menjadi .env
 
     - Buka file .env tersebut dan isi dengan URL serta kredensial kamu sendiri.
 
 🧪 Menjalankan Pengujian
-Jalankan perintah ini di terminal (pastikan venv sudah aktif):
-- Menjalankan seluruh test:
-pytest -v
+- Jalankan perintah ini di terminal (pastikan venv sudah aktif):
+    1. Menjalankan seluruh test:
+        ```bash
+        pytest -v
 
-- Menjalankan test spesifik file (contoh: Disposisi):
-pytest -v tests/user/kepala_badan/test_disposisi.py
+    2. Menjalankan test spesifik file (contoh: Disposisi):
+        ```bash
+        pytest -v tests/user/kepala_badan/test_disposisi.py
 
-- menjalankan test spesifik testing (contoh: TestCetakAgendaKeluar::test_dengan_data):
-pytest -m "tests/user/sekretaris_badan/test_cetak_agenda_surat_keluar_sekretaris.py::TestCetakAgendaKeluar::test_tanpa_data"
+    3. menjalankan test spesifik testing (contoh: TestCetakAgendaKeluar::test_dengan_data):
+        ```bash
+        pytest -m "tests/user/sekretaris_badan/test_cetak_agenda_surat_keluar_sekretaris.py::TestCetakAgendaKeluar::test_tanpa_data"
 
-- Melihat hasil capture jika gagal:
-Cek folder screenshots/ jika ada test yang failed.
+    4. Melihat hasil capture jika gagal:
+        - Cek folder screenshots/ jika ada test yang failed.
