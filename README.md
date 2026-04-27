@@ -1,23 +1,43 @@
-# SIPS - Automated Functional Testing
+# SIPS - Otomatisasi Testing Selenium Python
 
-**SIPS (Sistem Informasi Pengarsipan Surat)** adalah proyek otomasi pengujian fungsional berbasis web. Proyek ini dibangun untuk memastikan alur kerja persuratan (Surat Masuk, Keluar, hingga Disposisi) berjalan dengan benar di berbagai role pengguna.
+**SIPS (Sistem Informasi Pengarsipan Surat)** – Proyek ini berisi skrip otomatisasi fungsional menggunakan Selenium WebDriver dan pytest.
 
-## 🚀 Fitur Utama
-- **End-to-End Testing:** Mencakup skenario login hingga cetak agenda.
-- **Role-Based Access Control (RBAC):** Validasi akses untuk Admin, Kepala Badan, Sekretaris, dan Master Admin.
-- **Smart Waiting:** Penanganan loading overlay otomatis menggunakan Selenium Explicit Wait.
-- **Auto-Screenshot:** Menangkap gambar secara otomatis jika test gagal (tersimpan di folder `/screenshots`).
+## 📋 Prasyarat
+- Python 3.12+
+- Browser Chrome
+- ChromeDriver (Otomatis dikelola oleh webdriver-manager)
 
-## 🛠️ Tech Stack & Library
-- **Python 3.12.2**
-- **Selenium:** Driver interaksi browser.
-- **Pytest:** Test runner dan assertion.
-- **Python-Decouple:** Manajemen environment (.env).
-- **Webdriver-Manager:** Otomatisasi update driver Chrome/Edge.
+## 🚀 Instalasi & Persiapan
 
-## 📋 Panduan Instalasi (Step-by-Step)
-
-1. **Clone & Masuk ke Folder:**
+1. **Clone repositori:**
    ```bash
    git clone [https://github.com/Niloure/selenium-automation-test-SIPS.git](https://github.com/Niloure/selenium-automation-test-SIPS.git)
    cd selenium-automation-test-SIPS
+
+2. Buat & Aktifkan Virtual Environment:
+    python -m venv venv
+    venv\Scripts\activate  # Untuk Windows
+
+3. Install Library:
+    Install Library:
+
+4. Konfigurasi Environment (.env):
+    PENTING: File .env asli tidak di-upload demi keamanan.
+
+    - Copy file .env.example dan ubah namanya menjadi .env
+
+    - Buka file .env tersebut dan isi dengan URL serta kredensial kamu sendiri.
+
+🧪 Menjalankan Pengujian
+Jalankan perintah ini di terminal (pastikan venv sudah aktif):
+- Menjalankan seluruh test:
+pytest -v
+
+- Menjalankan test spesifik file (contoh: Disposisi):
+pytest -v tests/user/kepala_badan/test_disposisi.py
+
+- menjalankan test spesifik testing (contoh: TestCetakAgendaKeluar::test_dengan_data):
+pytest -m "tests/user/sekretaris_badan/test_cetak_agenda_surat_keluar_sekretaris.py::TestCetakAgendaKeluar::test_tanpa_data"
+
+- Melihat hasil capture jika gagal:
+Cek folder screenshots/ jika ada test yang failed.
